@@ -14,7 +14,9 @@ class Person < ActiveRecord::Base
   def password
     return
   end
-  
+  def to_s
+    self.alias
+  end
   def to_param
     self.alias
   end

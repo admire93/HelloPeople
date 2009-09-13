@@ -8,10 +8,10 @@
 <% @posts.each do |post| %>
   <tr>
     <td><%=h post.body %></td>
-    <td><%= link_to 'Show', post %></td>
-    <!--<td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>-->
+    <td><%= link_to 'Show', [post.person,post] %></td>
+    <td><%= link_to 'Edit', edit_person_post_path%> 
+    <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
 <% end %>
 </table>
 
