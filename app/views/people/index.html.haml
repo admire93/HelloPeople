@@ -1,0 +1,6 @@
+%h1 Llisten People
+
+- @people.each do |person|
+  %p
+    %a{:href => person_path(person)}
+      = person.alias
