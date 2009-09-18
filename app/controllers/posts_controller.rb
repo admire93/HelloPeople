@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all
+    @posts = Post.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find_by_flag(params)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +24,8 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.xml
   def new
-    @post = Post.new
+    @person = Person.find_by_alias(params[:person_id])
+    @post = Post.new(:person_id => @person.id) 
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @post }
@@ -33,6 +34,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    @person = Person.find_by_alias(params[:person_id])
     @post = Post.find(params[:id])
   end
 

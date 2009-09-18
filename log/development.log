@@ -4466,3 +4466,3483 @@ ActionView::TemplateError (edit_person_post_url failed to generate from {:contro
 Rendered rescues/_trace (222.0ms)
 Rendered rescues/_request_and_response (0.8ms)
 Rendering rescues/layout (internal_server_error)
+
+
+Processing PeopleController#index (for 127.0.0.1 at 2009-09-14 12:51:58) [GET]
+  [4;36;1mPerson Load (2.7ms)[0m   [0;1mSELECT * FROM "people" [0m
+Rendering template within layouts/people
+Rendering people/index
+Completed in 351ms (View: 184, DB: 3) | 200 OK [http://localhost/-_-]
+
+
+Processing PeopleController#new (for 127.0.0.1 at 2009-09-14 12:52:04) [GET]
+Rendering template within layouts/people
+Rendering people/new
+Completed in 76ms (View: 42, DB: 0) | 200 OK [http://localhost/-_-/new]
+
+
+Processing PeopleController#create (for 127.0.0.1 at 2009-09-14 12:52:14) [POST]
+  Parameters: {"person"=>{"alias"=>"person1", "password"=>"hello", "email"=>"khyoj8733"}, "commit"=>"Create", "authenticity_token"=>"kf1gKNRZbwt6nD5yoHk8fBfUb0j89F6lPZgc759WLgA="}
+  [4;35;1mPerson Create (1.2ms)[0m   [0mINSERT INTO "people" ("created_at", "updated_at", "alias", "password_hash", "email") VALUES('2009-09-14 03:52:14', '2009-09-14 03:52:14', 'person1', '29070db502e2926d6840f42d7c5ea9656cb58ba5', 'khyoj8733')[0m
+Redirected to http://localhost:3000/-_-/person1
+Completed in 253ms (DB: 1) | 302 Found [http://localhost/-_-]
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2009-09-14 12:52:14) [GET]
+  Parameters: {"id"=>"person1"}
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'person1') LIMIT 1[0m
+Rendering template within layouts/people
+Rendering people/show
+Completed in 68ms (View: 35, DB: 1) | 200 OK [http://localhost/-_-/person1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-14 12:52:32) [GET]
+  Parameters: {"person_id"=>"person1"}
+  [4;35;1mPost Load (2.2ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:controller=>"posts", :action=>"edit"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["-_-", :person_id, "!", :id, "edit"] - are they all satisfied?) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path%> 
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (192.3ms)
+Rendered rescues/_request_and_response (4.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PeopleController#index (for 127.0.0.1 at 2009-09-14 12:58:06) [GET]
+  [4;36;1mPerson Load (2.1ms)[0m   [0;1mSELECT * FROM "people" [0m
+Rendering template within layouts/people
+Rendering people/index
+Completed in 99ms (View: 46, DB: 2) | 200 OK [http://localhost/-_-]
+
+
+Processing PeopleController#index (for 127.0.0.1 at 2009-09-14 12:58:07) [GET]
+  [4;35;1mPerson Load (1.9ms)[0m   [0mSELECT * FROM "people" [0m
+Rendering template within layouts/people
+Rendering people/index
+Completed in 44ms (View: 15, DB: 2) | 200 OK [http://localhost/-_-/]
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2009-09-14 12:58:10) [GET]
+  Parameters: {"id"=>"admire"}
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/people
+Rendering people/show
+Completed in 50ms (View: 19, DB: 1) | 200 OK [http://localhost/-_-/admire]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-14 12:58:12) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (2.2ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (1.1ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:controller=>"posts", :action=>"edit"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["-_-", :person_id, "!", :id, "edit"] - are they all satisfied?) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path%> 
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (198.4ms)
+Rendered rescues/_request_and_response (4.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-14 12:59:11) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (2.1ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (1.2ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (undefined local variable or method `edit_person_posts_path' for #<ActionView::Base:0xb70e9a7c>) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_posts_path%> 
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (306.1ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-14 12:59:18) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (3.1ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:controller=>"posts", :action=>"edit"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["-_-", :person_id, "!", :id, "edit"] - are they all satisfied?) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path%> 
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (192.1ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-14 12:59:34) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (2.5ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (0.9ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>]}) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path([post.person, post])%> 
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (203.5ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-14 13:00:39) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (2.1ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>]}) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path([post.person, post])%> 
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (321.7ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-14 13:00:41) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (2.3ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (1.2ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>]}) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path([post.person, post])%> 
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (193.5ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-14 13:01:04) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (2.1ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (0.9ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 117ms (View: 89, DB: 3) | 200 OK [http://localhost/-_-/admire/!/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-14 13:02:11) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (2.2ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (undefined method `edit_post_path' for #<ActionView::Base:0xb705fc14>) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_post_path(post)%>
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (193.7ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-14 13:02:54) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (2.1ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.5ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>#<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>, :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>#<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>}) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path(post) %>
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (320.8ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PeopleController#index (for 127.0.0.1 at 2009-09-15 21:59:05) [GET]
+  [4;36;1mPerson Load (4.1ms)[0m   [0;1mSELECT * FROM "people" [0m
+Rendering template within layouts/people
+Rendering people/index
+Completed in 369ms (View: 209, DB: 4) | 200 OK [http://localhost/-_-/]
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2009-09-15 21:59:07) [GET]
+  Parameters: {"id"=>"admire"}
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/people
+Rendering people/show
+Completed in 53ms (View: 20, DB: 1) | 200 OK [http://localhost/-_-/admire]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-09-15 21:59:13) [GET]
+  Parameters: {"person_id"=>"admire"}
+Rendering template within layouts/posts
+Rendering posts/new
+
+ActionView::TemplateError (undefined method `posts_path' for #<ActionView::Base:0xb6edc6f8>) on line #2 of app/views/posts/new.html.haml:
+1: <h1>New post</h1>
+2: - form_for([@post.person ,@post]) do |f|
+3:   = f.error_messages
+4:   = f.label :person_id
+5:   = f.text_field :person_id
+
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:167:in `form_for'
+    app/views/posts/new.html.haml:2:in `_run_haml_app47views47posts47new46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:28:in `new'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (204.2ms)
+Rendered rescues/_request_and_response (4.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-09-15 22:00:02) [GET]
+  Parameters: {"person_id"=>"admire"}
+Rendering template within layouts/posts
+Rendering posts/new
+
+ActionView::TemplateError (undefined method `posts_path' for #<ActionView::Base:0xb6fb7230>) on line #2 of app/views/posts/new.html.haml:
+1: <h1>New post</h1>
+2: - form_for([@post.person, @post]) do |f|
+3:   = f.error_messages
+4:   = f.label :person_id
+5:   = f.text_field :person_id
+
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:167:in `form_for'
+    app/views/posts/new.html.haml:2:in `_run_haml_app47views47posts47new46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:28:in `new'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (598.4ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-09-15 22:00:12) [GET]
+  Parameters: {"person_id"=>"admire"}
+Rendering template within layouts/posts
+Rendering posts/new
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #2 of app/views/posts/new.html.haml:
+1: <h1>New post</h1>
+2: - form_for(@post.person, @post) do |f|
+3:   = f.error_messages
+4:   = f.label :person_id
+5:   = f.text_field :person_id
+
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:167:in `form_for'
+    app/views/posts/new.html.haml:2:in `_run_haml_app47views47posts47new46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:28:in `new'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (186.9ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-09-15 22:00:32) [GET]
+  Parameters: {"person_id"=>"admire"}
+Rendering template within layouts/posts
+Rendering posts/new
+
+ActionView::TemplateError (undefined method `posts_path' for #<ActionView::Base:0xb6f4e424>) on line #2 of app/views/posts/new.html.haml:
+1: <h1>New post</h1>
+2: - form_for([@post.person, @post]) do |f|
+3:   = f.error_messages
+4:   = f.label :person_id
+5:   = f.text_field :person_id
+
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:167:in `form_for'
+    app/views/posts/new.html.haml:2:in `_run_haml_app47views47posts47new46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:28:in `new'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (319.1ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-09-15 22:02:37) [GET]
+  Parameters: {"person_id"=>"admire"}
+Rendering template within layouts/posts
+Rendering posts/new
+
+ActionView::TemplateError (undefined method `posts_path' for #<ActionView::Base:0xb709dbcc>) on line #3 of app/views/posts/new.html.haml:
+1: <h1>New post</h1>
+2: = @post.person
+3: - form_for([@post.person, @post]) do |f|
+4:   = f.error_messages
+5:   = f.label :person_id
+6:   = f.text_field :person_id
+
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:167:in `form_for'
+    app/views/posts/new.html.haml:3:in `_run_haml_app47views47posts47new46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:28:in `new'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (184.7ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PeopleController#index (for 127.0.0.1 at 2009-09-18 09:29:32) [GET]
+  [4;36;1mPerson Load (2.1ms)[0m   [0;1mSELECT * FROM "people" [0m
+Rendering template within layouts/people
+Rendering people/index
+Completed in 421ms (View: 221, DB: 2) | 200 OK [http://localhost/-_-]
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2009-09-18 09:29:34) [GET]
+  Parameters: {"id"=>"admire"}
+  [4;35;1mPerson Load (1.5ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/people
+Rendering people/show
+Completed in 55ms (View: 18, DB: 1) | 200 OK [http://localhost/-_-/admire]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-09-18 09:29:39) [GET]
+  Parameters: {"person_id"=>"admire"}
+Rendering template within layouts/posts
+Rendering posts/new
+  [4;36;1mPerson Load (0.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 0) [0m
+
+ActionView::TemplateError (undefined method `posts_path' for #<ActionView::Base:0xb6fcff10>) on line #2 of app/views/posts/new.html.haml:
+1: <h1>New post</h1>
+2: - form_for([@post.person, @post]) do |f|
+3:   = f.error_messages
+4:   = f.label :person_id
+5:   = f.text_field :person_id
+
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:167:in `form_for'
+    app/views/posts/new.html.haml:2:in `_run_haml_app47views47posts47new46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:28:in `new'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (201.2ms)
+Rendered rescues/_request_and_response (4.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-09-18 09:29:44) [GET]
+  Parameters: {"person_id"=>"admire"}
+Rendering template within layouts/posts
+Rendering posts/new
+  [4;35;1mPerson Load (0.7ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 0) [0m
+
+ActionView::TemplateError (undefined method `posts_path' for #<ActionView::Base:0xb706c374>) on line #2 of app/views/posts/new.html.haml:
+1: <h1>New post</h1>
+2: - form_for([@post.person, @post]) do |f|
+3:   = f.error_messages
+4:   = f.label :person_id
+5:   = f.text_field :person_id
+
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:167:in `form_for'
+    app/views/posts/new.html.haml:2:in `_run_haml_app47views47posts47new46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:28:in `new'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (364.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-09-18 09:30:46) [GET]
+  Parameters: {"person_id"=>"admire"}
+
+NameError (uninitialized constant PostsController::People):
+  app/controllers/posts_controller.rb:27:in `new'
+  vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (124.4ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-09-18 09:31:05) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPerson Load (1.1ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/new
+  [4;35;1mPerson Load (1.1ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 114ms (View: 43, DB: 2) | 200 OK [http://localhost/-_-/admire/!/new]
+
+
+Processing PeopleController#index (for 127.0.0.1 at 2009-09-18 18:48:24) [GET]
+  [4;36;1mPerson Load (2.2ms)[0m   [0;1mSELECT * FROM "people" [0m
+Rendering template within layouts/people
+Rendering people/index
+Completed in 382ms (View: 246, DB: 2) | 200 OK [http://localhost/-_-]
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2009-09-18 18:48:28) [GET]
+  Parameters: {"id"=>"admire"}
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/people
+Rendering people/show
+Completed in 96ms (View: 62, DB: 1) | 200 OK [http://localhost/-_-/admire]
+
+
+Processing PeopleController#index (for 127.0.0.1 at 2009-09-18 18:48:36) [GET]
+  [4;36;1mPerson Load (1.9ms)[0m   [0;1mSELECT * FROM "people" [0m
+Rendering template within layouts/people
+Rendering people/index
+Completed in 49ms (View: 18, DB: 2) | 200 OK [http://localhost/-_-]
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2009-09-18 18:48:40) [GET]
+  Parameters: {"id"=>"admire"}
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/people
+Rendering people/show
+Completed in 51ms (View: 10, DB: 1) | 200 OK [http://localhost/-_-/admire]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-09-18 18:48:42) [GET]
+
+ActionController::RoutingError (No route matches "/-_-/admire/new" with {:method=>:get}):
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:48:45) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (2.6ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.6ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>]}) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path([post.person,post]) %>
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (212.8ms)
+Rendered rescues/_request_and_response (4.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:49:31) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (2.9ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>]}) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path([post.person,post]) %>
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (221.5ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:49:48) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (5.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>]}) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path([post.person,post]) %>
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (242.5ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:50:32) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (2.1ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.5ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (undefined method `edit_person_posts_path' for #<ActionView::Base:0xb726fec8>) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_posts_path([post.person, post]) %>
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (185.4ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:50:41) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (3.4ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.3ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 120ms (View: 94, DB: 5) | 200 OK [http://localhost/-_-/admire/!/]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-09-18 18:50:46) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPerson Load (1.1ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/new
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (private method `gsub' called for 1:Fixnum) on line #5 of app/views/posts/new.html.haml:
+2: - form_for([@post.person, @post]) do |f|
+3:   = f.error_messages
+4:   = f.label :person_id
+5:   = f.text_field :person_id
+6:   = f.label :body
+7:   = f.text_field :body
+8:   = f.submit 'Create'
+
+    /usr/lib/ruby/1.8/erb.rb:823:in `html_escape'
+    app/views/posts/new.html.haml:5:in `_run_haml_app47views47posts47new46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:161:in `call'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:161:in `form_for'
+    vendor/plugins/haml/rails/./lib/haml/helpers.rb:527:in `call'
+    vendor/plugins/haml/rails/./lib/haml/helpers.rb:527:in `haml_bind_proc'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:167:in `form_for'
+    app/views/posts/new.html.haml:2:in `_run_haml_app47views47posts47new46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:29:in `new'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (222.8ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-09-18 18:51:08) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/new
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 74ms (View: 19, DB: 2) | 200 OK [http://localhost/-_-/admire/!/new]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-09-18 18:51:24) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPerson Load (1.2ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/new
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (private method `gsub' called for 1:Fixnum) on line #5 of app/views/posts/new.html.haml:
+2: - form_for([@post.person, @post]) do |f|
+3:   = f.error_messages
+4:   = f.label :person_id
+5:   = f.text_field :person_id
+6:   = f.label :body
+7:   = f.text_field :body
+8:   = f.submit 'Create'
+
+    /usr/lib/ruby/1.8/erb.rb:823:in `html_escape'
+    app/views/posts/new.html.haml:5:in `_run_haml_app47views47posts47new46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:161:in `call'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:161:in `form_for'
+    vendor/plugins/haml/rails/./lib/haml/helpers.rb:527:in `call'
+    vendor/plugins/haml/rails/./lib/haml/helpers.rb:527:in `haml_bind_proc'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:167:in `form_for'
+    app/views/posts/new.html.haml:2:in `_run_haml_app47views47posts47new46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:29:in `new'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (412.0ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-09-18 18:51:40) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/new
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 67ms (View: 17, DB: 2) | 200 OK [http://localhost/-_-/admire/!/new]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:52:09) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (2.4ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (undefined method `edit_person_posts_path' for #<ActionView::Base:0xb71255f4>) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_posts_path([post.person, post]) %>
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (225.0ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:52:16) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (3.1ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>]}) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path([post.person, post]) %>
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (244.3ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:52:17) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (1.6ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.include?) on line #10 of app/views/posts/index.html.erb:
+7: 
+8: <% @posts.each do |post| %>
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path([post.person, post]) %>
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+
+    app/views/posts/index.html.erb:10
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (425.6ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:53:27) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (3.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.5ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>]}) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path([post.person, post]) %>
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (205.3ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:53:59) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (3.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.3ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>]}) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path([post.person, post]) %>
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (420.2ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:54:01) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (2.1ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>]}) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path([post.person, post]) %>
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (346.9ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:54:27) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (2.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 229ms (View: 206, DB: 3) | 200 OK [http://localhost/-_-/admire/!/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:54:49) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (3.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (1.3ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 119ms (View: 88, DB: 4) | 200 OK [http://localhost/-_-/admire/!/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:54:50) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (2.9ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.5ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 108ms (View: 79, DB: 4) | 200 OK [http://localhost/-_-/admire/!/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:54:59) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (4.1ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (2.6ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 192ms (View: 146, DB: 7) | 200 OK [http://localhost/-_-/admire/!/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:55:12) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (3.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 112ms (View: 80, DB: 4) | 200 OK [http://localhost/-_-/admire/!/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:55:26) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (2.8ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 112ms (View: 82, DB: 4) | 200 OK [http://localhost/-_-/admire/!/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:55:32) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (5.6ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.1ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 257ms (View: 199, DB: 7) | 200 OK [http://localhost/-_-/admire/!/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:55:38) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (2.7ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 95ms (View: 66, DB: 4) | 200 OK [http://localhost/-_-/admire/!/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:55:39) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (2.2ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 82ms (View: 59, DB: 3) | 200 OK [http://localhost/-_-/admire/!/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:56:41) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (2.2ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (4.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #16 of app/views/posts/index.html.erb:
+13:   </tr>
+14: <% end %>
+15: </table>
+16: <% @inspects.each do |inspect|  %>
+17:   <%=h inspect%>
+18: <% end %>
+19: 
+
+    app/views/posts/index.html.erb:16
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (226.7ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:56:59) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (2.2ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.5ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #16 of app/views/posts/index.html.erb:
+13:   </tr>
+14: <% end %>
+15: </table>
+16: <% @inspects.each do |inspect|  %>
+17:   <%=h inspect%>
+18: <% end %>
+19: 
+
+    app/views/posts/index.html.erb:16
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (225.0ms)
+Rendered rescues/_request_and_response (2.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:57:00) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (3.1ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (1.2ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #16 of app/views/posts/index.html.erb:
+13:   </tr>
+14: <% end %>
+15: </table>
+16: <% @inspects.each do |inspect|  %>
+17:   <%=h inspect%>
+18: <% end %>
+19: 
+
+    app/views/posts/index.html.erb:16
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (346.9ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:57:30) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (4.1ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.1ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (uninitialized class variable @@inspects in ActionView::Base::CompiledTemplates) on line #16 of app/views/posts/index.html.erb:
+13:   </tr>
+14: <% end %>
+15: </table>
+16: <% @@inspects.each do |inspect|  %>
+17:   <%=h inspect%>
+18: <% end %>
+19: 
+
+    app/views/posts/index.html.erb:16
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (206.3ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:57:38) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (5.1ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #16 of app/views/posts/index.html.erb:
+13:   </tr>
+14: <% end %>
+15: </table>
+16: <% @inspects.each do |inspect|  %>
+17:   <%=h inspect%>
+18: <% end %>
+19: 
+
+    app/views/posts/index.html.erb:16
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (335.0ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:58:09) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (2.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (0.9ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (undefined method `edit_person_posts_path' for #<ActionView::Base:0xb71a2734>) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_posts_path([post.person, post]) %>
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (219.5ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:58:16) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (3.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>]}) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path([post.person, post]) %>
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (232.2ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:58:38) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (2.7ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (undefined method `edit_people_post_path' for #<ActionView::Base:0xb70bae48>) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_people_post_path([post.person, post]) %>
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (383.7ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:58:52) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (2.9ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>]}) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path([post.person, post]) %>
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (206.7ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:59:17) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (3.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>]}) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path([post.person, post]) %>
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (351.0ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 18:59:19) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (2.8ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>]}) on line #12 of app/views/posts/index.html.erb:
+9:   <tr>
+10:     <td><%=h post.body %></td>
+11:     <td><%= link_to 'Show', [post.person,post] %></td>
+12:     <td><%= link_to 'Edit', edit_person_post_path([post.person, post]) %>
+13:     <td><%= link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+14:   </tr>
+15: <% end %>
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.erb:12
+    app/views/posts/index.html.erb:8:in `each'
+    app/views/posts/index.html.erb:8
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (248.9ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 19:01:12) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (3.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+
+ActionView::TemplateError (The line was indented 2 levels deeper than the previous line.) on line #5 of app/views/posts/index.html.haml:
+2: 
+3: %p
+4:   - for post in @posts
+5:       = post.body 
+6:       = link_to 'Show', [post.person,post] 
+7:       = link_to 'Edit', edit_person_post_path([post.person, post]) %>
+8:       = link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+
+    app/views/posts/index.html.haml:5
+    vendor/plugins/haml/rails/./lib/haml/precompiler.rb:171:in `precompile'
+    vendor/plugins/haml/rails/./lib/haml/engine.rb:112:in `initialize'
+    vendor/plugins/haml/rails/./lib/haml/template/plugin.rb:21:in `new'
+    vendor/plugins/haml/rails/./lib/haml/template/plugin.rb:21:in `compile'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (198.9ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 19:01:26) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (2.1ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+ERROR: compiling _run_haml_app47views47posts47index46html46haml RAISED compile error
+/home/admire/work/ror/hello-people/app/views/posts/index.html.haml:8: syntax error, unexpected '>'
+/home/admire/work/ror/hello-people/app/views/posts/index.html.haml:9: syntax error, unexpected '>'
+... sure?', :method => :delete %></td>
+                              ^
+/home/admire/work/ror/hello-people/app/views/posts/index.html.haml:12: unknown regexp option - p
+/home/admire/work/ror/hello-people/app/views/posts/index.html.haml:12: unmatched ): /td>
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n", 0, false);end;
+
+_hamlout.push_text("</
+/home/admire/work/ror/hello-people/app/views/posts/index.html.haml:12: syntax error, unexpected $undefined
+_hamlout.push_text("</p>\n<br />\n#{_hamlout.adjust_tab...
+                         ^
+/home/admire/work/ror/hello-people/app/views/posts/index.html.haml:12: syntax error, unexpected tREGEXP_BEG, expecting kDO or '{' or '('
+...hamlout.push_text("</p>\n<br />\n#{_hamlout.adjust_tabs(-1);...
+                              ^
+/home/admire/work/ror/hello-people/app/views/posts/index.html.haml:12: unterminated string meets end of file
+/home/admire/work/ror/hello-people/app/views/posts/index.html.haml:12: syntax error, unexpected tSTRING_END, expecting tSTRING_CONTENT or tREGEXP_END or tSTRING_DBEG or tSTRING_DVAR
+Function body:           def _run_haml_app47views47posts47index46html46haml(local_assigns)
+            old_output_buffer = output_buffer;;extend Haml::Helpers;_hamlout = @haml_buffer = Haml::Buffer.new(@haml_buffer, {:attr_wrapper=>"'", :format=>:xhtml, :encoding=>nil, :autoclose=>["meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base"], :ugly=>false, :preserve=>["textarea", "pre"]});_erbout = _hamlout.buffer;__in_erb_template = true;;
+
+
+_hamlout.push_text("<h1>Listing posts</h1>\n<p>\n", 1, false); for post in @posts;
+
+_hamlout.push_text("  #{haml_temp =  post.body
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n  #{haml_temp =  link_to 'Show', [post.person,post]
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n  #{haml_temp =  link_to 'Edit', edit_person_post_path([post.person, post]) %>
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n  #{haml_temp =  link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n", 0, false);end;
+
+_hamlout.push_text("</p>\n<br />\n#{_hamlout.adjust_tabs(-1); haml_temp =  link_to 'New post', new_person_post_path
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n", 0, false);@haml_buffer = @haml_buffer.upper;_erbout;
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /home/admire/work/ror/hello-people/app/views/posts/index.html.haml:12:in `compile!'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:61:in `compile'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:28:in `render'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/template.rb:199:in `render_template'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:260:in `render_without_haml'
+/home/admire/work/ror/hello-people/vendor/plugins/haml/rails/../lib/haml/helpers/action_view_mods.rb:13:in `render'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:343:in `_render_with_layout'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:257:in `render_without_haml'
+/home/admire/work/ror/hello-people/vendor/plugins/haml/rails/../lib/haml/helpers/action_view_mods.rb:13:in `render'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1246:in `render_for_file'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:947:in `render_without_benchmark'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:51:in `render'
+/home/admire/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/home/admire/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:51:in `render'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:135:in `send'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:135:in `custom'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:179:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:179:in `respond'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:173:in `each'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:173:in `respond'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/home/admire/work/ror/hello-people/app/controllers/posts_controller.rb:7:in `index'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1327:in `send'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1327:in `perform_action_without_filters'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:617:in `call_filters'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/home/admire/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/home/admire/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/flash.rb:146:in `perform_action'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `send'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `process_without_filters'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:606:in `sass_old_process'
+/home/admire/work/ror/hello-people/vendor/plugins/haml/rails/../lib/sass/plugin/rails.rb:19:in `process'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:391:in `process'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:386:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:434:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:111:in `_call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:82:in `initialize'
+/home/admire/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+/home/admire/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+/home/admire/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/home/admire/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:9:in `cache'
+/home/admire/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:28:in `call'
+/home/admire/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/params_parser.rb:15:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/session/cookie_store.rb:93:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:29:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+/home/admire/.gem/ruby/1.8/gems/rails-2.3.3/lib/rails/rack/static.rb:31:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+/home/admire/.gem/ruby/1.8/gems/rails-2.3.3/lib/rails/rack/log_tailer.rb:17:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+/usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+/usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+/usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+/usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+/usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+/usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+/usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+/usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+/usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+/usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+/home/admire/.gem/ruby/1.8/gems/rails-2.3.3/lib/commands/server.rb:111
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/home/admire/work/ror/hello-people/app/views/posts/index.html.haml:8: syntax error, unexpected '>'
+/home/admire/work/ror/hello-people/app/views/posts/index.html.haml:9: syntax error, unexpected '>'
+... sure?', :method => :delete %></td>
+                              ^
+/home/admire/work/ror/hello-people/app/views/posts/index.html.haml:12: unknown regexp option - p
+/home/admire/work/ror/hello-people/app/views/posts/index.html.haml:12: unmatched ): /td>
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n", 0, false);end;
+
+_hamlout.push_text("</
+/home/admire/work/ror/hello-people/app/views/posts/index.html.haml:12: syntax error, unexpected $undefined
+_hamlout.push_text("</p>\n<br />\n#{_hamlout.adjust_tab...
+                         ^
+/home/admire/work/ror/hello-people/app/views/posts/index.html.haml:12: syntax error, unexpected tREGEXP_BEG, expecting kDO or '{' or '('
+...hamlout.push_text("</p>\n<br />\n#{_hamlout.adjust_tabs(-1);...
+                              ^
+/home/admire/work/ror/hello-people/app/views/posts/index.html.haml:12: unterminated string meets end of file
+/home/admire/work/ror/hello-people/app/views/posts/index.html.haml:12: syntax error, unexpected tSTRING_END, expecting tSTRING_CONTENT or tREGEXP_END or tSTRING_DBEG or tSTRING_DVAR) on line #8 of app/views/posts/index.html.haml:
+5:     = post.body 
+6:     = link_to 'Show', [post.person,post] 
+7:     = link_to 'Edit', edit_person_post_path([post.person, post]) %>
+8:     = link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete %></td>
+9: 
+10: <br />
+11: 
+
+    app/views/posts/index.html.haml:12:in `compile!'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (173.6ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 19:01:38) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (4.4ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.5ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>]}) on line #8 of app/views/posts/index.html.haml:
+5:     = post.body 
+6:     = link_to 'Show', [post.person,post] 
+7:     = link_to 'Edit', edit_person_post_path([post.person, post])
+8:     = link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete 
+9: 
+10: = link_to 'New post', new_person_post_path
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.haml:8:in `_run_haml_app47views47posts47index46html46haml'
+    app/views/posts/index.html.haml:4:in `each'
+    app/views/posts/index.html.haml:4:in `_run_haml_app47views47posts47index46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (206.0ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 19:01:54) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (2.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 139ms (View: 116, DB: 3) | 200 OK [http://localhost/-_-/admire/!/]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 19:02:48) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (3.1ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (0.9ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>[1, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>[1, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>]}) on line #8 of app/views/posts/index.html.haml:
+5:     = post.body 
+6:     = link_to 'Show', [post.person,post] 
+7:     = link_to 'Edit', edit_person_post_path([post.person.id,post]) 
+8:     = link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete 
+9: 
+10: = link_to 'New post', new_person_post_path
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.haml:8:in `_run_haml_app47views47posts47index46html46haml'
+    app/views/posts/index.html.haml:4:in `each'
+    app/views/posts/index.html.haml:4:in `_run_haml_app47views47posts47index46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (249.2ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 19:02:59) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (2.1ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (0.9ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>["admire", #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>["admire", #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>]}) on line #8 of app/views/posts/index.html.haml:
+5:     = post.body 
+6:     = link_to 'Show', [post.person,post] 
+7:     = link_to 'Edit', edit_person_post_path([post.person.alias,post]) 
+8:     = link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete 
+9: 
+10: = link_to 'New post', new_person_post_path
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.haml:8:in `_run_haml_app47views47posts47index46html46haml'
+    app/views/posts/index.html.haml:4:in `each'
+    app/views/posts/index.html.haml:4:in `_run_haml_app47views47posts47index46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (375.4ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 19:03:11) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (4.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (1.7ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>[1, 1], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>[1, 1]}) on line #8 of app/views/posts/index.html.haml:
+5:     = post.body 
+6:     = link_to 'Show', [post.person,post] 
+7:     = link_to 'Edit', edit_person_post_path([post.person.id,post.id]) 
+8:     = link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete 
+9: 
+10: = link_to 'New post', new_person_post_path
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/index.html.haml:8:in `_run_haml_app47views47posts47index46html46haml'
+    app/views/posts/index.html.haml:4:in `each'
+    app/views/posts/index.html.haml:4:in `_run_haml_app47views47posts47index46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:7:in `index'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (207.0ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 19:03:31) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (2.1ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (0.9ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 101ms (View: 77, DB: 3) | 200 OK [http://localhost/-_-/admire/!/]
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-09-18 19:03:35) [GET]
+  Parameters: {"id"=>"1", "person_id"=>"admire"}
+  [4;36;1mPerson Load (3.7ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (4.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+
+ActionView::TemplateError (undefined method `post_path' for #<ActionView::Base:0xb6fc1744>) on line #3 of app/views/posts/edit.html.erb:
+1: <h1>Editing post</h1>
+2: 
+3: <% form_for(@post) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:167:in `form_for'
+    app/views/posts/edit.html.erb:3
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (188.6ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-09-18 19:04:05) [GET]
+  Parameters: {"id"=>"1", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.7ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (1.9ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+
+ActionView::TemplateError (undefined method `post_path' for #<ActionView::Base:0xb70d9a78>) on line #3 of app/views/posts/edit.html.erb:
+1: <h1>Editing post</h1>
+2: 
+3: <% form_for(@post) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:167:in `form_for'
+    app/views/posts/edit.html.erb:3
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (218.1ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-09-18 19:04:23) [GET]
+  Parameters: {"id"=>"1", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (1.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+
+ActionView::TemplateError (undefined method `post_path' for #<ActionView::Base:0xb7283d38>) on line #3 of app/views/posts/edit.html.erb:
+1: <h1>Editing post</h1>
+2: 
+3: <% form_for(@post) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:167:in `form_for'
+    app/views/posts/edit.html.erb:3
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (220.6ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-09-18 19:04:42) [GET]
+  Parameters: {"id"=>"1", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (0.8ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (undefined method `post_path' for #<ActionView::Base:0xb70802ac>) on line #15 of app/views/posts/edit.html.erb:
+12:   </p>
+13: <% end %>
+14: 
+15: <%= link_to 'Show', @post %> |
+16: <%= link_to 'Back', person_posts_path %>
+
+    app/views/posts/edit.html.erb:15
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (305.9ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-09-18 19:05:14) [GET]
+  Parameters: {"id"=>"1", "person_id"=>"admire"}
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+
+ArgumentError (Unknown key(s): person_id):
+  app/controllers/posts_controller.rb:38:in `edit'
+  vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (130.1ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-09-18 19:05:51) [GET]
+  Parameters: {"id"=>"1", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.2ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (1.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+  [4;36;1mPerson Load (1.1ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (undefined method `post_path' for #<ActionView::Base:0xb70b5ca4>) on line #15 of app/views/posts/edit.html.erb:
+12:   </p>
+13: <% end %>
+14: 
+15: <%= link_to 'Show', @post %> |
+16: <%= link_to 'Back', person_posts_path %>
+
+    app/views/posts/edit.html.erb:15
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (356.2ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2009-09-18 19:06:11) [GET]
+  Parameters: {"id"=>"1", "person_id"=>"admire"}
+  [4;35;1mPerson Load (1.1ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;36;1mPost Load (0.8ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+  [4;35;1mPerson Load (1.1ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 95ms (View: 34, DB: 3) | 200 OK [http://localhost/-_-/admire/!/1/edit]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:06:17) [GET]
+  Parameters: {"id"=>"1", "person_id"=>"admire"}
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 72ms (View: 48, DB: 1) | 200 OK [http://localhost/-_-/admire/!/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 19:06:19) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (2.1ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 87ms (View: 63, DB: 3) | 200 OK [http://localhost/-_-/admire/!]
+
+
+Processing PeopleController#index (for 127.0.0.1 at 2009-09-18 19:06:28) [GET]
+  [4;36;1mPerson Load (1.9ms)[0m   [0;1mSELECT * FROM "people" [0m
+Rendering template within layouts/people
+Rendering people/index
+Completed in 55ms (View: 16, DB: 2) | 200 OK [http://localhost/-_-/]
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2009-09-18 19:07:46) [GET]
+  Parameters: {"id"=>"admire"}
+  [4;35;1mPerson Load (1.1ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/people
+Rendering people/show
+Completed in 40ms (View: 8, DB: 1) | 200 OK [http://localhost/-_-/admire]
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2009-09-18 19:07:51) [GET]
+  Parameters: {"id"=>"person1"}
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'person1') LIMIT 1[0m
+Rendering template within layouts/people
+Rendering people/show
+Completed in 40ms (View: 10, DB: 1) | 200 OK [http://localhost/-_-/person1]
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2009-09-18 19:07:53) [GET]
+  Parameters: {"id"=>"admire"}
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/people
+Rendering people/show
+Completed in 44ms (View: 10, DB: 1) | 200 OK [http://localhost/-_-/admire]
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2009-09-18 19:07:55) [GET]
+  Parameters: {"id"=>"admire"}
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/people
+Rendering people/show
+Completed in 49ms (View: 15, DB: 1) | 200 OK [http://localhost/-_-/admire]
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2009-09-18 19:07:58) [GET]
+  Parameters: {"id"=>"admire"}
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/people
+Rendering people/show
+Completed in 46ms (View: 10, DB: 1) | 200 OK [http://localhost/-_-/admire]
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2009-09-18 19:08:01) [GET]
+  Parameters: {"id"=>"admire"}
+  [4;36;1mPerson Load (1.2ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/people
+Rendering people/show
+Completed in 47ms (View: 11, DB: 1) | 200 OK [http://localhost/-_-/admire]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:08:05) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Post with ID=me):
+  app/controllers/posts_controller.rb:16:in `show'
+  vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (135.1ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-09-18 19:08:10) [GET]
+
+ActionController::RoutingError (No route matches "/-_-/admire/!me" with {:method=>:get}):
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:08:13) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Post with ID=me):
+  app/controllers/posts_controller.rb:16:in `show'
+  vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (290.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:17:10) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `find_by_flag' for #<Class:0xb7246190>):
+  app/controllers/posts_controller.rb:16:in `show'
+  vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (163.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:17:20) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `find_by_flag' for #<Class:0xb71039b8>):
+  app/controllers/posts_controller.rb:16:in `show'
+  vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (191.4ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:17:43) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `find_by_flag' for #<Class:0xb701ad6c>):
+  app/controllers/posts_controller.rb:16:in `show'
+  vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (335.8ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:18:11) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `find_by_flag' for #<Class:0xb723f840>):
+  app/controllers/posts_controller.rb:16:in `show'
+  vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (207.7ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:18:12) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `find_by_flag' for #<Class:0xb7101848>):
+  app/controllers/posts_controller.rb:16:in `show'
+  vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (142.8ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:19:21) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;36;1mPost Load (3.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (undefined method `body' for #<Array:0xb7010a24>) on line #3 of app/views/posts/show.html.erb:
+1: <p>
+2:   <b>Body:</b>
+3:   <%=h @post.body %>
+4: </p>
+5: 
+6: 
+
+    app/views/posts/show.html.erb:3
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (334.1ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:19:46) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;35;1mPost Load (2.2ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (undefined method `body' for #<Array:0xb7174230>) on line #3 of app/views/posts/show.html.erb:
+1: <p>
+2:   <b>Body:</b>
+3:   <%=h @post.body %>
+4: </p>
+5: 
+6: 
+
+    app/views/posts/show.html.erb:3
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (201.9ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:19:49) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;36;1mPost Load (3.2ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (undefined method `body' for #<Array:0xb6fef7fc>) on line #3 of app/views/posts/show.html.erb:
+1: <p>
+2:   <b>Body:</b>
+3:   <%=h @post.body %>
+4: </p>
+5: 
+6: 
+
+    app/views/posts/show.html.erb:3
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (399.7ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:20:21) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;35;1mPost Load (3.2ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 54ms (View: 24, DB: 3) | 200 OK [http://localhost/-_-/admire/!/me]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:21:07) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;36;1mPost Load (3.7ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (Illegal nesting: nesting within plain text is illegal.) on line #2 of app/views/posts/show.html.haml:
+1: <p>
+2:   <b>Body:</b>
+3:   =@post.inspect
+4: </p>
+5: 
+
+    app/views/posts/show.html.haml:2
+    vendor/plugins/haml/rails/./lib/haml/precompiler.rb:312:in `push_plain'
+    vendor/plugins/haml/rails/./lib/haml/precompiler.rb:246:in `process_line'
+    vendor/plugins/haml/rails/./lib/haml/precompiler.rb:168:in `precompile'
+    vendor/plugins/haml/rails/./lib/haml/engine.rb:112:in `initialize'
+    vendor/plugins/haml/rails/./lib/haml/template/plugin.rb:21:in `new'
+    vendor/plugins/haml/rails/./lib/haml/template/plugin.rb:21:in `compile'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (208.2ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:21:16) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;35;1mPost Load (2.1ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (Illegal nesting: nesting within plain text is illegal.) on line #2 of app/views/posts/show.html.haml:
+1: <p>
+2:   <b>Body:</b>
+3:   =@post.inspect
+4: </p>
+5: 
+
+    app/views/posts/show.html.haml:2
+    vendor/plugins/haml/rails/./lib/haml/precompiler.rb:312:in `push_plain'
+    vendor/plugins/haml/rails/./lib/haml/precompiler.rb:246:in `process_line'
+    vendor/plugins/haml/rails/./lib/haml/precompiler.rb:168:in `precompile'
+    vendor/plugins/haml/rails/./lib/haml/engine.rb:112:in `initialize'
+    vendor/plugins/haml/rails/./lib/haml/template/plugin.rb:21:in `new'
+    vendor/plugins/haml/rails/./lib/haml/template/plugin.rb:21:in `compile'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (239.1ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:21:42) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;36;1mPost Load (3.1ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (Illegal nesting: nesting within plain text is illegal.) on line #2 of app/views/posts/show.html.haml:
+1: <p>
+2:   Body:
+3:   =@post.inspect
+4: </p>
+5: 
+
+    app/views/posts/show.html.haml:2
+    vendor/plugins/haml/rails/./lib/haml/precompiler.rb:312:in `push_plain'
+    vendor/plugins/haml/rails/./lib/haml/precompiler.rb:246:in `process_line'
+    vendor/plugins/haml/rails/./lib/haml/precompiler.rb:168:in `precompile'
+    vendor/plugins/haml/rails/./lib/haml/engine.rb:112:in `initialize'
+    vendor/plugins/haml/rails/./lib/haml/template/plugin.rb:21:in `new'
+    vendor/plugins/haml/rails/./lib/haml/template/plugin.rb:21:in `compile'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (400.2ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:21:55) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;35;1mPost Load (6.6ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (Illegal nesting: content can't be both given on the same line as %p and nested within it.) on line #2 of app/views/posts/show.html.haml:
+1: %p Body:
+2:   =@post.inspect
+3: 
+4: 
+5: = link_to 'Edit', edit_person_post_path 
+
+    app/views/posts/show.html.haml:2
+    vendor/plugins/haml/rails/./lib/haml/precompiler.rb:698:in `render_tag'
+    vendor/plugins/haml/rails/./lib/haml/precompiler.rb:204:in `process_line'
+    vendor/plugins/haml/rails/./lib/haml/precompiler.rb:168:in `precompile'
+    vendor/plugins/haml/rails/./lib/haml/engine.rb:112:in `initialize'
+    vendor/plugins/haml/rails/./lib/haml/template/plugin.rb:21:in `new'
+    vendor/plugins/haml/rails/./lib/haml/template/plugin.rb:21:in `compile'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (252.6ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:22:05) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;36;1mPost Load (3.2ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (Illegal nesting: nesting within plain text is illegal.) on line #3 of app/views/posts/show.html.haml:
+1: %p 
+2: Body:
+3:   =@post.inspect
+4: 
+5: 
+6: = link_to 'Edit', edit_person_post_path 
+
+    app/views/posts/show.html.haml:3
+    vendor/plugins/haml/rails/./lib/haml/precompiler.rb:312:in `push_plain'
+    vendor/plugins/haml/rails/./lib/haml/precompiler.rb:246:in `process_line'
+    vendor/plugins/haml/rails/./lib/haml/precompiler.rb:168:in `precompile'
+    vendor/plugins/haml/rails/./lib/haml/engine.rb:112:in `initialize'
+    vendor/plugins/haml/rails/./lib/haml/template/plugin.rb:21:in `new'
+    vendor/plugins/haml/rails/./lib/haml/template/plugin.rb:21:in `compile'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (355.9ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:22:09) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;35;1mPost Load (3.8ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 49ms (View: 20, DB: 4) | 200 OK [http://localhost/-_-/admire/!/me]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:22:13) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;36;1mPost Load (5.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 47ms (View: 20, DB: 5) | 200 OK [http://localhost/-_-/admire/!/me]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:22:35) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;35;1mPost Load (3.3ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 54ms (View: 27, DB: 3) | 200 OK [http://localhost/-_-/admire/!/me]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:22:47) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;36;1mPost Load (2.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 53ms (View: 29, DB: 2) | 200 OK [http://localhost/-_-/admire/!/me]
+
+
+Processing PeopleController#index (for 127.0.0.1 at 2009-09-18 19:23:08) [GET]
+  [4;35;1mPerson Load (2.3ms)[0m   [0mSELECT * FROM "people" [0m
+Rendering template within layouts/people
+Rendering people/index
+Completed in 87ms (View: 18, DB: 2) | 200 OK [http://localhost/-_-/]
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2009-09-18 19:23:12) [GET]
+  Parameters: {"id"=>"person1"}
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'person1') LIMIT 1[0m
+Rendering template within layouts/people
+Rendering people/show
+Completed in 42ms (View: 9, DB: 1) | 200 OK [http://localhost/-_-/person1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 19:23:20) [GET]
+  Parameters: {"person_id"=>"person1"}
+  [4;35;1mPost Load (2.2ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 96ms (View: 70, DB: 3) | 200 OK [http://localhost/-_-/person1/!/]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:23:25) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"person1"}
+  [4;36;1mPost Load (2.2ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 44ms (View: 14, DB: 2) | 200 OK [http://localhost/-_-/person1/!/me]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 19:23:28) [GET]
+  Parameters: {"person_id"=>"person1"}
+  [4;35;1mPost Load (5.4ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (5.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 212ms (View: 150, DB: 10) | 200 OK [http://localhost/-_-/person1/!]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 19:23:38) [GET]
+  Parameters: {"person_id"=>"person1"}
+  [4;36;1mPost Load (2.4ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 109ms (View: 79, DB: 4) | 200 OK [http://localhost/-_-/person1/!]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:23:43) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"person1"}
+  [4;35;1mPost Load (2.3ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 51ms (View: 26, DB: 2) | 200 OK [http://localhost/-_-/person1/!/me]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:24:04) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"person1"}
+  [4;36;1mPost Load (3.2ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mPerson Load (1.5ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 81ms (View: 58, DB: 5) | 200 OK [http://localhost/-_-/person1/!/me]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:24:23) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"person1"}
+  [4;35;1mPost Load (2.7ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mPerson Load (1.1ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 92ms (View: 66, DB: 4) | 200 OK [http://localhost/-_-/person1/!/me]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:25:24) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"person1"}
+
+SyntaxError (/home/admire/work/ror/hello-people/app/models/post.rb:6: syntax error, unexpected kWHEN, expecting ')'
+      when 'friends' then 
+          ^
+/home/admire/work/ror/hello-people/app/models/post.rb:6: syntax error, unexpected kTHEN, expecting kEND
+      when 'friends' then 
+                         ^):
+  app/controllers/posts_controller.rb:16:in `show'
+  vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (190.3ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:26:22) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"person1"}
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."person_id" = 'person1') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #1 of app/views/posts/show.html.haml:
+1: - for post in @post
+2:   %p 
+3:     Body:
+4:     = post.body
+
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (265.8ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:28:43) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"person1"}
+  [4;35;1mPerson Load (1.3ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'person1') LIMIT 1[0m
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."person_id" = 2) LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #1 of app/views/posts/show.html.haml:
+1: - for post in @post
+2:   %p 
+3:     Body:
+4:     = post.body
+
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (284.9ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:28:44) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"person1"}
+  [4;35;1mPerson Load (2.3ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'person1') LIMIT 1[0m
+  [4;36;1mPost Load (0.9ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."person_id" = 2) LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #1 of app/views/posts/show.html.haml:
+1: - for post in @post
+2:   %p 
+3:     Body:
+4:     = post.body
+
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (245.0ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mPost Load (1.6ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mPost Load (1.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1) LIMIT 1[0m
+  [4;36;1mPost Load (1.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1) LIMIT 1[0m
+  [4;35;1mPost Load (1.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1) LIMIT 1[0m
+  [4;36;1mPost Load (2.9ms)[0m   [0;1mSELECT * FROM "posts" [0m
+  [4;35;1mPost Load (2.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1) LIMIT 1[0m
+  [4;36;1mPost Load (2.7ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1) [0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:33:42) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"person1"}
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'person1') LIMIT 1[0m
+  [4;36;1mPost Load (0.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."person_id" = 2) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 54ms (View: 5, DB: 1) | 200 OK [http://localhost/-_-/person1/!/me]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:34:39) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"person1"}
+  [4;35;1mPerson Load (1.6ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'person1') LIMIT 1[0m
+  [4;36;1mPost Load (0.6ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."person_id" = 2) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 78ms (View: 21, DB: 2) | 200 OK [http://localhost/-_-/person1/!/me]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-18 19:34:41) [GET]
+  Parameters: {"person_id"=>"person1"}
+  [4;35;1mPost Load (3.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 128ms (View: 74, DB: 4) | 200 OK [http://localhost/-_-/person1/!]
+
+
+Processing PeopleController#index (for 127.0.0.1 at 2009-09-18 19:34:48) [GET]
+  [4;36;1mPerson Load (2.8ms)[0m   [0;1mSELECT * FROM "people" [0m
+Rendering template within layouts/people
+Rendering people/index
+Completed in 67ms (View: 24, DB: 3) | 200 OK [http://localhost/-_-]
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2009-09-18 19:34:50) [GET]
+  Parameters: {"id"=>"admire"}
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/people
+Rendering people/show
+Completed in 43ms (View: 9, DB: 1) | 200 OK [http://localhost/-_-/admire]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-09-18 19:34:55) [GET]
+
+ActionController::RoutingError (No route matches "/-_-/admire/1/me" with {:method=>:get}):
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:35:01) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (2.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (edit_person_post_url failed to generate from {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>], :controller=>"posts", :action=>"edit"}, expected: {:controller=>"posts", :action=>"edit"}, diff: {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "d7e96627a7323d9ba90fcde0346d8cbd87ffe9e1", email: "admire9@gmail.com", created_at: "2009-09-13 14:48:57", updated_at: "2009-09-13 14:48:57">, #<Post id: 1, body: "hello", created_at: "2009-09-13 14:51:44", person_id: 1>]}) on line #7 of app/views/posts/show.html.haml:
+4:     = post.body
+5:     Author:
+6:     = post.person.alias
+7:     = link_to 'Edit', edit_person_post_path([post.person,post]) 
+8: = link_to 'Back', person_posts_path 
+
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/show.html.haml:7:in `_run_haml_app47views47posts47show46html46haml'
+    app/views/posts/show.html.haml:1:in `each'
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (369.1ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:35:13) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;36;1mPost Load (2.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mPerson Load (1.5ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 101ms (View: 46, DB: 5) | 200 OK [http://localhost/-_-/admire/!/me]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:37:14) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;36;1mPost Load (2.4ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+ActionView::TemplateError (can't convert ActiveSupport::TimeWithZone into String) on line #7 of app/views/posts/show.html.haml:
+4:     = post.body
+5:     Author:
+6:     = post.person.alias
+7:     = link_to 'Edit', edit_person_post_path(post.person,post) 
+8: = link_to 'Back', person_posts_path 
+
+    generated code (actionpack (2.3.3) lib/action_controller/routing/route.rb:160):9:in `generate_raw'
+    (eval):16:in `edit_person_post_path'
+    app/views/posts/show.html.haml:7:in `_run_haml_app47views47posts47show46html46haml'
+    app/views/posts/show.html.haml:1:in `each'
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (376.5ms)
+Rendered rescues/_request_and_response (1.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-18 19:37:50) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (1.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 76ms (View: 26, DB: 4) | 200 OK [http://localhost/-_-/admire/!/me]
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2009-09-18 19:38:06) [GET]
+  Parameters: {"id"=>"admire"}
+  [4;36;1mPerson Load (2.2ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/people
+Rendering people/show
+Completed in 69ms (View: 11, DB: 2) | 200 OK [http://localhost/-_-/admire]
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2009-09-18 19:41:32) [GET]
+  Parameters: {"id"=>"admire"}
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/people
+Rendering people/show
+Completed in 41ms (View: 8, DB: 1) | 200 OK [http://localhost/-_-/admire]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-09-18 19:41:36) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/new
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 76ms (View: 20, DB: 2) | 200 OK [http://localhost/-_-/admire/!/new]

@@ -1,0 +1,10 @@
+<h1>Listing posts</h1>
+
+%p
+  - for post in @posts
+    = post.body 
+    = link_to 'Show', [post.person,post] 
+    = link_to 'Edit', edit_person_post_path(post.person,post) 
+    = link_to 'Destroy', [post.person, post], :confirm => 'Are you sure?', :method => :delete 
+
+= link_to 'New post', new_person_post_path

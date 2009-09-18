@@ -1,0 +1,8 @@
+- for post in @post
+  %p 
+    Body:
+    = post.body
+    Author:
+    = post.person.alias
+    = link_to 'Edit', edit_person_post_path(post.person,post) 
+= link_to 'Back', person_posts_path 
