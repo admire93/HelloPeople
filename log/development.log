@@ -9306,3 +9306,1442 @@ Migrating to CreateTags (20090918104615)
   [4;36;1mSQL (0.4ms)[0m   [0;1mPRAGMA index_list("people")[0m
   [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_list("posts")[0m
   [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("tags")[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:08:54) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (3.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (0.7ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (4.8ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (0.6ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (6.2ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (2.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (2.2ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 6) [0m
+Completed in 575ms (View: 282, DB: 23) | 200 OK [http://localhost/-_-/admire/!/me]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:09:04) [GET]
+  Parameters: {"id"=>"가나다", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (0.6ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Post with ID=가나다):
+  app/models/post.rb:12:in `find_by_flag'
+  app/controllers/posts_controller.rb:16:in `show'
+  vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (416.7ms)
+Rendered rescues/_request_and_response (8.9ms)
+Rendering rescues/layout (not_found)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:13:45) [GET]
+  Parameters: {"id"=>"1", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (1.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (undefined method `each' for #<Post:0xb712b378>) on line #1 of app/views/posts/show.html.haml:
+1: - for post in @post
+2:   %p 
+3:     Body:
+4:     = post.body
+
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (371.7ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:13:48) [GET]
+  Parameters: {"id"=>"2", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (1.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 2) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (undefined method `each' for #<Post:0xb6f7b3d4>) on line #1 of app/views/posts/show.html.haml:
+1: - for post in @post
+2:   %p 
+3:     Body:
+4:     = post.body
+
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (328.6ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:13:52) [GET]
+  Parameters: {"id"=>"3", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (1.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (undefined method `each' for #<Post:0xb70c9c04>) on line #1 of app/views/posts/show.html.haml:
+1: - for post in @post
+2:   %p 
+3:     Body:
+4:     = post.body
+
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (402.0ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:14:01) [GET]
+  Parameters: {"id"=>"3", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #1 of app/views/posts/show.html.haml:
+1: - for post in @post
+2:   %p 
+3:     Body:
+4:     = post.body
+
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (356.9ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:14:33) [GET]
+  Parameters: {"id"=>"3", "person_id"=>"admire"}
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #1 of app/views/posts/show.html.haml:
+1: - for post in @post
+2:   %p 
+3:     Body:
+4:     = post.body
+
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (337.6ms)
+Rendered rescues/_request_and_response (2.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:14:46) [GET]
+  Parameters: {"id"=>"3", "person_id"=>"admire"}
+  [4;36;1mPerson Load (3.3ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #1 of app/views/posts/show.html.haml:
+1: - for post in @post
+2:   %p 
+3:     Body:
+4:     = post.body
+
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (348.6ms)
+Rendered rescues/_request_and_response (7.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:15:00) [GET]
+  Parameters: {"id"=>"3", "person_id"=>"admire"}
+  [4;35;1mPerson Load (5.8ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #1 of app/views/posts/show.html.haml:
+1: - for post in @post
+2:   %p 
+3:     Body:
+4:     = post.body
+
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (596.9ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:15:04) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #1 of app/views/posts/show.html.haml:
+1: - for post in @post
+2:   %p 
+3:     Body:
+4:     = post.body
+
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (352.6ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:18:04) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;35;1mPerson Load (2.1ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #1 of app/views/posts/show.html.haml:
+1: - for post in @post
+2:   = post.inspect 
+3: = link_to 'Back', person_posts_path 
+
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (717.8ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:19:28) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 190ms (View: 45, DB: 2) | 200 OK [http://localhost/-_-/admire/!/5]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:19:35) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 132ms (View: 40, DB: 1) | 200 OK [http://localhost/-_-/admire/!/5]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:19:55) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 95ms (View: 19, DB: 1) | 200 OK [http://localhost/-_-/admire/!/5]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:19:56) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 135ms (View: 14, DB: 1) | 200 OK [http://localhost/-_-/admire/!/5]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:20:23) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (3.1ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 182ms (View: 27, DB: 4) | 200 OK [http://localhost/-_-/admire/!/5]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:20:36) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 134ms (View: 16, DB: 1) | 200 OK [http://localhost/-_-/admire/!/5]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:20:41) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;35;1mPerson Load (1.5ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 128ms (View: 7, DB: 1) | 200 OK [http://localhost/-_-/admire/!/5]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:21:04) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;36;1mPerson Load (4.8ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (1.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 143ms (View: 19, DB: 6) | 200 OK [http://localhost/-_-/admire/!/5]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:21:15) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (1.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (undefined method `each' for #<Post:0xb71079c8>) on line #1 of app/views/posts/show.html.haml:
+1: - for post in @post
+2:   %p 
+3:     Body:
+4:     = post.body
+
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (501.7ms)
+Rendered rescues/_request_and_response (5.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:21:25) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (1.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 238ms (View: 62, DB: 3) | 200 OK [http://localhost/-_-/admire/!/5]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:22:04) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (1.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+ERROR: compiling _run_haml_app47views47posts47show46html46haml RAISED compile error
+/home/admire/work/ror/hello-people/app/views/posts/show.html.haml:5: syntax error, unexpected kENSURE, expecting kEND
+/home/admire/work/ror/hello-people/app/views/posts/show.html.haml:7: syntax error, unexpected $end, expecting kEND
+Function body:           def _run_haml_app47views47posts47show46html46haml(local_assigns)
+            old_output_buffer = output_buffer;;extend Haml::Helpers;_hamlout = @haml_buffer = Haml::Buffer.new(@haml_buffer, {:attr_wrapper=>"'", :format=>:xhtml, :encoding=>nil, :autoclose=>["meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base"], :ugly=>false, :preserve=>["textarea", "pre"]});_erbout = _hamlout.buffer;__in_erb_template = true;; for post in @post;
+
+_hamlout.push_text("#{haml_temp =  link_to 'Back', person_posts_path
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n", 0, false);@haml_buffer = @haml_buffer.upper;_erbout;
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /home/admire/work/ror/hello-people/app/views/posts/show.html.haml:7:in `compile!'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:61:in `compile'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:28:in `render'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/template.rb:199:in `render_template'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:260:in `render_without_haml'
+/home/admire/work/ror/hello-people/vendor/plugins/haml/rails/../lib/haml/helpers/action_view_mods.rb:13:in `render'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:343:in `_render_with_layout'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:257:in `render_without_haml'
+/home/admire/work/ror/hello-people/vendor/plugins/haml/rails/../lib/haml/helpers/action_view_mods.rb:13:in `render'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1246:in `render_for_file'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:947:in `render_without_benchmark'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:51:in `render'
+/home/admire/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/home/admire/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:51:in `render'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:135:in `send'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:135:in `custom'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:179:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:179:in `respond'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:173:in `each'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:173:in `respond'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/home/admire/work/ror/hello-people/app/controllers/posts_controller.rb:18:in `show'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1327:in `send'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1327:in `perform_action_without_filters'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:617:in `call_filters'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/home/admire/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/home/admire/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/flash.rb:146:in `perform_action'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `send'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `process_without_filters'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:606:in `sass_old_process'
+/home/admire/work/ror/hello-people/vendor/plugins/haml/rails/../lib/sass/plugin/rails.rb:19:in `process'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:391:in `process'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:386:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:434:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:111:in `_call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:82:in `initialize'
+/home/admire/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+/home/admire/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+/home/admire/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/home/admire/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:9:in `cache'
+/home/admire/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:28:in `call'
+/home/admire/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/params_parser.rb:15:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/session/cookie_store.rb:93:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:29:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+/home/admire/.gem/ruby/1.8/gems/rails-2.3.3/lib/rails/rack/static.rb:31:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+/home/admire/.gem/ruby/1.8/gems/rails-2.3.3/lib/rails/rack/log_tailer.rb:17:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+/usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+/usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+/usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+/usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+/usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+/usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+/usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+/usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+/usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+/usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+/home/admire/.gem/ruby/1.8/gems/rails-2.3.3/lib/commands/server.rb:111
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/home/admire/work/ror/hello-people/app/views/posts/show.html.haml:5: syntax error, unexpected kENSURE, expecting kEND
+/home/admire/work/ror/hello-people/app/views/posts/show.html.haml:7: syntax error, unexpected $end, expecting kEND) on line #5 of app/views/posts/show.html.haml:
+2:  
+3: = link_to 'Back', person_posts_path 
+
+    app/views/posts/show.html.haml:7:in `compile!'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (533.3ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:22:06) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (31.6ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+ERROR: compiling _run_haml_app47views47posts47show46html46haml RAISED compile error
+/home/admire/work/ror/hello-people/app/views/posts/show.html.haml:5: syntax error, unexpected kENSURE, expecting kEND
+/home/admire/work/ror/hello-people/app/views/posts/show.html.haml:7: syntax error, unexpected $end, expecting kEND
+Function body:           def _run_haml_app47views47posts47show46html46haml(local_assigns)
+            old_output_buffer = output_buffer;;extend Haml::Helpers;_hamlout = @haml_buffer = Haml::Buffer.new(@haml_buffer, {:attr_wrapper=>"'", :format=>:xhtml, :encoding=>nil, :autoclose=>["meta", "img", "link", "br", "hr", "input", "area", "param", "col", "base"], :ugly=>false, :preserve=>["textarea", "pre"]});_erbout = _hamlout.buffer;__in_erb_template = true;; for post in @post;
+
+_hamlout.push_text("#{haml_temp =  link_to 'Back', person_posts_path
+_hamlout.format_script_false_false_false_false_false_true_false((haml_very_temp = haml_temp; haml_temp = nil; haml_very_temp));}\n", 0, false);@haml_buffer = @haml_buffer.upper;_erbout;
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /home/admire/work/ror/hello-people/app/views/posts/show.html.haml:7:in `compile!'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:61:in `compile'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/renderable.rb:28:in `render'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/template.rb:199:in `render_template'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:260:in `render_without_haml'
+/home/admire/work/ror/hello-people/vendor/plugins/haml/rails/../lib/haml/helpers/action_view_mods.rb:13:in `render'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:343:in `_render_with_layout'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_view/base.rb:257:in `render_without_haml'
+/home/admire/work/ror/hello-people/vendor/plugins/haml/rails/../lib/haml/helpers/action_view_mods.rb:13:in `render'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1246:in `render_for_file'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:947:in `render_without_benchmark'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:51:in `render'
+/home/admire/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/home/admire/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:51:in `render'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:135:in `send'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:135:in `custom'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:179:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:179:in `respond'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:173:in `each'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:173:in `respond'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/home/admire/work/ror/hello-people/app/controllers/posts_controller.rb:18:in `show'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1327:in `send'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:1327:in `perform_action_without_filters'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:617:in `call_filters'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/home/admire/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/home/admire/.gem/ruby/1.8/gems/activesupport-2.3.3/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/flash.rb:146:in `perform_action'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `send'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:527:in `process_without_filters'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/filters.rb:606:in `sass_old_process'
+/home/admire/work/ror/hello-people/vendor/plugins/haml/rails/../lib/sass/plugin/rails.rb:19:in `process'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:391:in `process'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/base.rb:386:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/routing/route_set.rb:434:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:111:in `_call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:82:in `initialize'
+/home/admire/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+/home/admire/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:29:in `call'
+/home/admire/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/home/admire/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:9:in `cache'
+/home/admire/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/query_cache.rb:28:in `call'
+/home/admire/.gem/ruby/1.8/gems/activerecord-2.3.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/params_parser.rb:15:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/session/cookie_store.rb:93:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/reloader.rb:29:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/failsafe.rb:26:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/home/admire/.gem/ruby/1.8/gems/actionpack-2.3.3/lib/action_controller/dispatcher.rb:106:in `call'
+/home/admire/.gem/ruby/1.8/gems/rails-2.3.3/lib/rails/rack/static.rb:31:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+/home/admire/.gem/ruby/1.8/gems/rails-2.3.3/lib/rails/rack/log_tailer.rb:17:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+/usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+/usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+/usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+/usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+/usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+/usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+/usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+/usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+/usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+/usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+/home/admire/.gem/ruby/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+/home/admire/.gem/ruby/1.8/gems/rails-2.3.3/lib/commands/server.rb:111
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/home/admire/work/ror/hello-people/app/views/posts/show.html.haml:5: syntax error, unexpected kENSURE, expecting kEND
+/home/admire/work/ror/hello-people/app/views/posts/show.html.haml:7: syntax error, unexpected $end, expecting kEND) on line #5 of app/views/posts/show.html.haml:
+2:  
+3: = link_to 'Back', person_posts_path 
+
+    app/views/posts/show.html.haml:7:in `compile!'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (745.3ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:22:37) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (1.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 136ms (View: 39, DB: 3) | 200 OK [http://localhost/-_-/admire/!/5]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-22 20:22:46) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (8.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 462ms (View: 396, DB: 10) | 200 OK [http://localhost/-_-/admire/!]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:22:51) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;35;1mPerson Load (10.2ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;36;1mPost Load (6.7ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (undefined method `body' for #<Array:0xb70b8a80>) on line #1 of app/views/posts/show.html.haml:
+1: = @post.body
+2: = link_to 'Back', person_posts_path 
+
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (375.3ms)
+Rendered rescues/_request_and_response (3.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:23:12) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;35;1mPerson Load (2.3ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;36;1mPost Load (9.4ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 321ms (View: 45, DB: 12) | 200 OK [http://localhost/-_-/admire/!/me]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:23:19) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;35;1mPerson Load (1.5ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;36;1mPost Load (1.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (undefined method `each' for #<Post:0xb7196b50>) on line #1 of app/views/posts/show.html.haml:
+1: - for post in @post
+2:   = post.body
+3: = link_to 'Back', person_posts_path 
+
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (374.6ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (3.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mPost Load (1.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:26:31) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;35;1mPerson Load (1.5ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;36;1mPost Load (1.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mTag Load (2.2ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags".post_id = 5) [0m
+Completed in 169ms (View: 91, DB: 6) | 200 OK [http://localhost/-_-/admire/!/5]
+  [4;36;1mSQL (2.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mTag Load (4.3ms)[0m   [0;1mSELECT * FROM "tags" [0m
+  [4;35;1mTag Load (5.8ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."tag" = '한글') [0m
+  [4;36;1mTag Load (1.3ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."tag" = '한글') [0m
+  [4;35;1mTag Load (1.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."tag" = '한글') [0m
+  [4;36;1mPost Load (2.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:36:41) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;36;1mPost Load (1.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mPerson Load (1.5ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mTag Load (3.1ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags".post_id = 5) [0m
+
+ActionView::TemplateError (person_post_url failed to generate from {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "591d98305ff29d04a747e6472e653a49853e701d", email: "http://www.naver.com", created_at: "2009-09-22 04:20:39", updated_at: "2009-09-22 04:20:39">, #<Post id: 5, body: "가나다라마바사아자타카타파하", created_at: "2009-09-22 04:34:26", person_id: 1>], :controller=>"posts", :action=>"show"}, expected: {:controller=>"posts", :action=>"show"}, diff: {:person_id=>[#<Person id: 1, alias: "admire", password_hash: "591d98305ff29d04a747e6472e653a49853e701d", email: "http://www.naver.com", created_at: "2009-09-22 04:20:39", updated_at: "2009-09-22 04:20:39">, #<Post id: 5, body: "가나다라마바사아자타카타파하", created_at: "2009-09-22 04:34:26", person_id: 1>]}) on line #11 of app/views/posts/show.html.haml:
+8:     %span.tags
+9:       TAG :
+10:       - for tag in post.tag.all
+11:         %a{:href => person_post_path([post.person,post])+"#{tag.tag}"}= tag.tag
+12: = link_to 'Back', person_posts_path 
+
+    (eval):16:in `person_post_path'
+    app/views/posts/show.html.haml:11:in `_run_haml_app47views47posts47show46html46haml'
+    app/views/posts/show.html.haml:10:in `each'
+    app/views/posts/show.html.haml:10:in `_run_haml_app47views47posts47show46html46haml'
+    app/views/posts/show.html.haml:1:in `each'
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (397.8ms)
+Rendered rescues/_request_and_response (1.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:36:51) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;36;1mPost Load (1.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mPerson Load (1.5ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mTag Load (2.3ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags".post_id = 5) [0m
+Completed in 222ms (View: 109, DB: 6) | 200 OK [http://localhost/-_-/admire/!/5]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:37:11) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;35;1mPerson Load (7.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;36;1mPost Load (1.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mTag Load (13.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags".post_id = 5) [0m
+Completed in 268ms (View: 124, DB: 23) | 200 OK [http://localhost/-_-/admire/!/5]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:37:14) [GET]
+  Parameters: {"id"=>"이한솔", "person_id"=>"admire/5"}
+  [4;35;1mPerson Load (0.6ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire/5') LIMIT 1[0m
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/models/post.rb:5:in `find_by_flag'
+  app/controllers/posts_controller.rb:16:in `show'
+  vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (386.2ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:37:16) [GET]
+  Parameters: {"id"=>"이한솔", "person_id"=>"admire/5"}
+  [4;36;1mPerson Load (0.7ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire/5') LIMIT 1[0m
+
+RuntimeError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+  app/models/post.rb:5:in `find_by_flag'
+  app/controllers/posts_controller.rb:16:in `show'
+  vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (235.8ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:38:15) [GET]
+  Parameters: {"id"=>"5", "person_id"=>"admire"}
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;36;1mPost Load (1.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mTag Load (2.2ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags".post_id = 5) [0m
+Completed in 169ms (View: 73, DB: 6) | 200 OK [http://localhost/-_-/admire/!/5]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:38:20) [GET]
+  Parameters: {"id"=>"이한솔", "person_id"=>"admire"}
+  [4;35;1mPerson Load (2.2ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;36;1mTag Load (1.4ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."tag" = '이한솔') [0m
+  [4;35;1mPost Load (1.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (undefined method `body' for #<Tag:0xb723e5bc>) on line #7 of app/views/posts/show.html.haml:
+4:     = post.body
+5:     Author:
+6:     = post.person.alias
+7:     = link_to 'Edit', edit_person_post_path(post.person,post) 
+8:     %span.tags
+9:       TAG :
+10:       - for tag in post.tag.all
+
+    app/views/posts/show.html.haml:7:in `_run_haml_app47views47posts47show46html46haml'
+    app/views/posts/show.html.haml:1:in `each'
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (351.6ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:38:51) [GET]
+  Parameters: {"id"=>"이한솔", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mTag Load (1.4ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."tag" = '이한솔') [0m
+  [4;36;1mPost Load (1.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mTag Load (2.3ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags".post_id = 5) [0m
+Completed in 140ms (View: 33, DB: 8) | 200 OK [http://localhost/-_-/admire/!/%EC%9D%B4%ED%95%9C%EC%86%94]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:38:56) [GET]
+  Parameters: {"id"=>"한글", "person_id"=>"admire"}
+  [4;35;1mPerson Load (2.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;36;1mTag Load (2.4ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."tag" = '한글') [0m
+  [4;35;1mPost Load (1.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mPerson Load (1.6ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (2.2ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 5) [0m
+Completed in 212ms (View: 45, DB: 9) | 200 OK [http://localhost/-_-/admire/!/%ED%95%9C%EA%B8%80]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:39:00) [GET]
+  Parameters: {"id"=>"한국", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mTag Load (1.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."tag" = '한국') [0m
+  [4;36;1mPost Load (11.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mTag Load (2.2ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags".post_id = 5) [0m
+Completed in 218ms (View: 53, DB: 18) | 200 OK [http://localhost/-_-/admire/!/%ED%95%9C%EA%B5%AD]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-22 20:39:08) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (6.9ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (3.1ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 376ms (View: 249, DB: 10) | 200 OK [http://localhost/-_-/admire/!]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:39:23) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (3.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (0.7ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (0.6ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (0.6ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (3.7ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (2.2ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (4.5ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 6) [0m
+Completed in 237ms (View: 124, DB: 18) | 200 OK [http://localhost/-_-/admire/!/me]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:39:29) [GET]
+  Parameters: {"id"=>"막장", "person_id"=>"admire"}
+  [4;36;1mPerson Load (7.1ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mTag Load (1.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."tag" = '막장') [0m
+  [4;36;1mPost Load (2.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 6) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mPerson Load (2.2ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mTag Load (2.2ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags".post_id = 6) [0m
+Completed in 266ms (View: 56, DB: 15) | 200 OK [http://localhost/-_-/admire/!/%EB%A7%89%EC%9E%A5]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-22 20:39:32) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (7.4ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (2.3ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 178ms (View: 134, DB: 10) | 200 OK [http://localhost/-_-/admire/!]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-09-22 20:39:33) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPerson Load (3.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/new
+  [4;35;1mPerson Load (8.3ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 172ms (View: 86, DB: 12) | 200 OK [http://localhost/-_-/admire/!/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-09-22 20:39:38) [POST]
+  Parameters: {"commit"=>"Create", "post"=>{"body"=>"ddd", "person_id"=>"1"}, "authenticity_token"=>"FubzThSEKcSia3gSpPjeCzzR1suJ/rKcQvMzE/ta5cs=", "tag"=>{"tag"=>"한글"}, "person_id"=>"admire"}
+  [4;36;1mPost Create (27.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "body", "person_id") VALUES('2009-09-22 11:39:38', 'ddd', 1)[0m
+  [4;35;1mTag Create (0.9ms)[0m   [0mINSERT INTO "tags" ("created_at", "updated_at", "post_id", "tag") VALUES('2009-09-22 11:39:39', '2009-09-22 11:39:39', 7, '한글')[0m
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Redirected to http://localhost:3000/-_-/admire/!/7
+Completed in 662ms (DB: 30) | 302 Found [http://localhost/-_-/admire/!]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:39:39) [GET]
+  Parameters: {"id"=>"7", "person_id"=>"admire"}
+  [4;35;1mPerson Load (1.7ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;36;1mPost Load (1.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 7) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mPerson Load (1.5ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mTag Load (1.4ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags".post_id = 7) [0m
+Completed in 288ms (View: 117, DB: 6) | 200 OK [http://localhost/-_-/admire/!/7]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-22 20:39:42) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPost Load (4.5ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 234ms (View: 184, DB: 6) | 200 OK [http://localhost/-_-/admire/!]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-09-22 20:39:44) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/new
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 141ms (View: 34, DB: 3) | 200 OK [http://localhost/-_-/admire/!/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-09-22 20:39:48) [POST]
+  Parameters: {"commit"=>"Create", "post"=>{"body"=>"한국!", "person_id"=>"1"}, "authenticity_token"=>"FubzThSEKcSia3gSpPjeCzzR1suJ/rKcQvMzE/ta5cs=", "tag"=>{"tag"=>"한국"}, "person_id"=>"admire"}
+  [4;35;1mPost Create (0.9ms)[0m   [0mINSERT INTO "posts" ("created_at", "body", "person_id") VALUES('2009-09-22 11:39:48', '한국!', 1)[0m
+  [4;36;1mTag Create (3.9ms)[0m   [0;1mINSERT INTO "tags" ("created_at", "updated_at", "post_id", "tag") VALUES('2009-09-22 11:39:49', '2009-09-22 11:39:49', 8, '한국')[0m
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Redirected to http://localhost:3000/-_-/admire/!/8
+Completed in 387ms (DB: 6) | 302 Found [http://localhost/-_-/admire/!]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:39:49) [GET]
+  Parameters: {"id"=>"8", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (1.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 8) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (5.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 8) [0m
+Completed in 310ms (View: 109, DB: 9) | 200 OK [http://localhost/-_-/admire/!/8]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-22 20:39:51) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (14.5ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.5ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 472ms (View: 409, DB: 16) | 200 OK [http://localhost/-_-/admire/!]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2009-09-22 20:39:53) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+Rendering template within layouts/posts
+Rendering posts/new
+  [4;36;1mPerson Load (2.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 171ms (View: 42, DB: 4) | 200 OK [http://localhost/-_-/admire/!/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2009-09-22 20:40:05) [POST]
+  Parameters: {"commit"=>"Create", "post"=>{"body"=>"한글은내개인적인견해로는 꽤나 고내찮은 랭귀지이다", "person_id"=>"1"}, "authenticity_token"=>"FubzThSEKcSia3gSpPjeCzzR1suJ/rKcQvMzE/ta5cs=", "tag"=>{"tag"=>"한글"}, "person_id"=>"admire"}
+  [4;35;1mPost Create (1.0ms)[0m   [0mINSERT INTO "posts" ("created_at", "body", "person_id") VALUES('2009-09-22 11:40:05', '한글은내개인적인견해로는 꽤나 고내찮은 랭귀지이다', 1)[0m
+  [4;36;1mTag Create (3.3ms)[0m   [0;1mINSERT INTO "tags" ("created_at", "updated_at", "post_id", "tag") VALUES('2009-09-22 11:40:05', '2009-09-22 11:40:05', 9, '한글')[0m
+  [4;35;1mPerson Load (1.5ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Redirected to http://localhost:3000/-_-/admire/!/9
+Completed in 477ms (DB: 6) | 302 Found [http://localhost/-_-/admire/!]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:40:06) [GET]
+  Parameters: {"id"=>"9", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.3ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (1.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (1.4ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 9) [0m
+Completed in 209ms (View: 102, DB: 5) | 200 OK [http://localhost/-_-/admire/!/9]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:40:07) [GET]
+  Parameters: {"id"=>"한글", "person_id"=>"admire"}
+  [4;36;1mPerson Load (6.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mTag Load (2.4ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."tag" = '한글') [0m
+  [4;36;1mPost Load (1.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+  [4;35;1mPost Load (3.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 7) [0m
+  [4;36;1mPost Load (1.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mPerson Load (4.3ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mTag Load (2.3ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags".post_id = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mTag Load (1.5ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags".post_id = 7) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mTag Load (1.4ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags".post_id = 9) [0m
+Completed in 226ms (View: 53, DB: 24) | 200 OK [http://localhost/-_-/admire/!/%ED%95%9C%EA%B8%80]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:42:30) [GET]
+  Parameters: {"id"=>"이한솔", "person_id"=>"admire"}
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;36;1mTag Load (1.3ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."tag" = '이한솔') [0m
+  [4;35;1mPost Load (1.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (2.2ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 5) [0m
+Completed in 160ms (View: 33, DB: 8) | 200 OK [http://localhost/-_-/admire/!/%EC%9D%B4%ED%95%9C%EC%86%94]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:42:38) [GET]
+  Parameters: {"id"=>"friends", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (4.4ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (0.7ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (0.6ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (0.6ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (1.8ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (2.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (2.4ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (1.4ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (1.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 8) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (1.4ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 9) [0m
+Completed in 333ms (View: 113, DB: 20) | 200 OK [http://localhost/-_-/admire/!/friends]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:42:42) [GET]
+  Parameters: {"id"=>"me", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.6ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (4.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (0.6ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (0.6ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (0.6ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (1.8ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (2.2ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (2.2ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (1.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 7) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (1.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 8) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (1.4ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 9) [0m
+Completed in 193ms (View: 110, DB: 19) | 200 OK [http://localhost/-_-/admire/!/me]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:42:45) [GET]
+  Parameters: {"id"=>"한국", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mTag Load (1.9ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."tag" = '한국') [0m
+  [4;36;1mPost Load (1.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 5) [0m
+  [4;35;1mPost Load (1.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 8) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (2.2ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (1.2ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 8) [0m
+Completed in 149ms (View: 37, DB: 11) | 200 OK [http://localhost/-_-/admire/!/%ED%95%9C%EA%B5%AD]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-22 20:42:48) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (5.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 164ms (View: 127, DB: 6) | 200 OK [http://localhost/-_-/admire/!]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2009-09-22 20:45:02) [GET]
+  Parameters: {"person_id"=>"admire"}
+  [4;36;1mPost Load (6.5ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mPerson Load (1.4ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Completed in 193ms (View: 154, DB: 8) | 200 OK [http://localhost/-_-/admire/!]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:45:05) [GET]
+  Parameters: {"id"=>"1", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (1.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (0.6ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 1) [0m
+Completed in 272ms (View: 41, DB: 5) | 200 OK [http://localhost/-_-/admire/!/1]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:45:11) [GET]
+  Parameters: {"id"=>"9", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mPost Load (1.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mPerson Load (1.5ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (1.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 9) [0m
+Completed in 119ms (View: 47, DB: 6) | 200 OK [http://localhost/-_-/admire/!/9]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:45:14) [GET]
+  Parameters: {"id"=>"한글", "person_id"=>"admire"}
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;35;1mTag Load (2.3ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."tag" = '한글') [0m
+  [4;36;1mPost Load (1.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1 AND "posts"."id" = 5) [0m
+  [4;35;1mPost Load (1.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1 AND "posts"."id" = 7) [0m
+  [4;36;1mPost Load (1.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1 AND "posts"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (undefined method `body' for #<Tag:0xb710725c>) on line #7 of app/views/posts/show.html.haml:
+4:     = post.body
+5:     Author:
+6:     = post.person.alias
+7:     = link_to 'Edit', edit_person_post_path(post.person,post) 
+8:     %span.tags
+9:       TAG :
+10:       - for tag in post.tag.all
+
+    app/views/posts/show.html.haml:7:in `_run_haml_app47views47posts47show46html46haml'
+    app/views/posts/show.html.haml:1:in `each'
+    app/views/posts/show.html.haml:1:in `_run_haml_app47views47posts47show46html46haml'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    vendor/plugins/haml/rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    app/controllers/posts_controller.rb:18:in `show'
+    vendor/plugins/haml/rails/./lib/sass/plugin/rails.rb:19:in `process'
+    /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+    /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+    /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (259.0ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#show (for 127.0.0.1 at 2009-09-22 20:45:32) [GET]
+  Parameters: {"id"=>"한글", "person_id"=>"admire"}
+  [4;35;1mPerson Load (4.9ms)[0m   [0mSELECT * FROM "people" WHERE ("people"."alias" = 'admire') LIMIT 1[0m
+  [4;36;1mTag Load (2.2ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."tag" = '한글') [0m
+  [4;35;1mPost Load (1.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1 AND "posts"."id" = 5) [0m
+  [4;36;1mPost Load (2.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1 AND "posts"."id" = 7) [0m
+  [4;35;1mPost Load (1.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."person_id" = 1 AND "posts"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mPerson Load (1.4ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+  [4;35;1mTag Load (1.4ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags".post_id = 9) [0m
+Completed in 359ms (View: 203, DB: 14) | 200 OK [http://localhost/-_-/admire/!/%ED%95%9C%EA%B8%80]

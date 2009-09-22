@@ -8,8 +8,14 @@ class Post < ActiveRecord::Base
         then Post.find(:all, :conditions => {:person_id => person_id})
       when 'friends' 
         then Post.all
-      else 
-        Post.find(params[:id])
+      when /[0-9]+/ 
+        then [Post.find(params[:id])]
+      else
+        for tag in Tag.find(:all,:conditions => {:tag => params[:id]})
+          posts = Post.find(:all,:conditions => {:id => tag.post_id,
+                                                 :person_id => person_id})   
+        end
+        posts
     end
   end
   

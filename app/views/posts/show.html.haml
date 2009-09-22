@@ -8,5 +8,5 @@
     %span.tags
       TAG :
       - for tag in post.tag.all
-        %a{:href => "/-_-/#{post.person.alias}/!/tag/#{tag.tag}"}= tag.tag
+        %a{:href => "/-_-/#{post.person.alias}/!/#{tag.tag}"}=tag.tag
 = link_to 'Back', person_posts_path 
