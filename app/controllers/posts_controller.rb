@@ -42,9 +42,17 @@ class PostsController < ApplicationController
   # POST /posts.xml
   def create
     @post = Post.new(params[:post])
-
+    tags = params[:tag][:tag].split(' ')
     respond_to do |format|
       if @post.save
+        for tag in tags 
+          tag_param = Tag.new(:post_id => @post.id, :tag => tag)
+          begin
+            tag_param.save
+          rescue
+            nil      
+          end
+        end
         flash[:notice] = 'Post was successfully created.'
         format.html { redirect_to([@post.person,@post]) }
         format.xml  { render :xml => @post, :status => :created, :location => @post }

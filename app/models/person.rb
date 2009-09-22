@@ -21,6 +21,6 @@ end
 
 class PasswordHash
   def self.hash(email, password)
-    SHA1.new(SHA1.new(password.reverse).to_s + "\n" + email).to_s.reverse   
+    SHA1.new(SHA1.new(password.to_s.reverse).to_s + "\n" + email).to_s.reverse 
   end
 end
