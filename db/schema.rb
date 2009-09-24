@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090918104615) do
+ActiveRecord::Schema.define(:version => 20090924113327) do
+
+  create_table "friends", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "friend_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "status",     :default => false
+  end
 
   create_table "people", :force => true do |t|
     t.string   "alias",         :null => false

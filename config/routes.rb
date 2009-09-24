@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :people, :as => '-_-' do |p|
     p.resources :posts, :as => '!'
+    p.resources :friends
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

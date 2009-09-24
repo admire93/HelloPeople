@@ -1,0 +1,21 @@
+%p
+  = @person.alias 
+%p
+  = @person.email 
+- if controller.person
+  - form_tag({:controller => :session},:method => :delete) do
+    = submit_tag 'logout'
+- else
+  - form_tag({:controller => :session},:method => :put) do
+    = text_field_tag(:alias)
+    = password_field_tag(:password)
+    = submit_tag 'login'
+
+- for friend in @friend_ask
+  %p
+    = Person.find(friend.friend_id).alias
+    = link_to 'Sure, i`m your Friend', new_person_friend_path(Person.find(friend.friend_id))
+= link_to 'i wannt to be your Friend', new_person_friend_path(@person)
+
+= link_to 'Edit', edit_person_path(@person) 
+= link_to 'Back', people_path 

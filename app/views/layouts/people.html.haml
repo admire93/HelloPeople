@@ -1,0 +1,15 @@
+!!! 1.0 Strict 
+%html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en")
+  %head
+    %meta(http-equiv="content-type" content="text/html;charset=UTF-8")
+    %title Hello People
+  %body
+
+    %p(style="color: green")
+      = flash[:notice] 
+    .log(style = "color: #FF00FF;")
+      - if controller.person
+        = "#{controller.person.alias} is login"
+    .body
+      = yield
+

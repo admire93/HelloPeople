@@ -7,4 +7,10 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  def person
+    session[:person_id] && Person.find(session[:person_id]) 
+  end
+  def person=(person)
+    session[:person_id] = person && person.id
+  end
 end

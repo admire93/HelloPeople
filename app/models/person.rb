@@ -1,18 +1,22 @@
 require 'sha1'
 class Person < ActiveRecord::Base
   has_many :posts
+  has_many :friends
   def initialize(params = {})
     if params[:password].to_s.empty?
       params[:password_hash] = ''
       params.delete :password
     else
-      params[:password_hash]=PasswordHash.hash(params[:email],params[:password])
+      params[:password_hash]=PasswordHash.hash(params[:alias],params[:password])
       params.delete :password
     end
     super(params)
   end
   def password
-    return
+    return if password_hash.to_s.empty?
+  end
+  def person?(password)
+    password_hash == PasswordHash.hash(self.alias,password)
   end
   def to_param
     self.alias

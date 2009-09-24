@@ -13,11 +13,15 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.xml
   def show
-    @person = Person.find_by_alias(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @person }
+    @person = Person.find_by_alias(params[:id]) 
+    @friend_ask = @person.friends.find(:all, :conditions =>{:status=>false}) 
+    if @person.nil?
+      render :text => "sorry we cannot found page", :status => 404
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @person }
+      end
     end
   end
 
